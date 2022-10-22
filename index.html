@@ -67,7 +67,7 @@
         background-color: rgb(21, 21, 21);
         font-size: 18px;
         margin: 0;
-        font-family: 'Open Sans', sans-serif;
+        font-family: "Open Sans", sans-serif;
       }
 
       .container {
@@ -130,6 +130,50 @@
       .container footer a img.profile {
         border-radius: 50%;
       }
+
+      .container smartphone {
+        display: block;
+        color: #1da60e;
+        margin: 2rem 0;
+        font-weight: bold;
+      }
+
+      .container smartphone input {
+        height: 1.75rem;
+        margin: 0;
+        padding: 0 0.5rem;
+        box-sizing: border-box;
+        font-size: 1rem;
+        border: 1px solid #f5c012;
+        background-color: transparent;
+        color: #f5c012;
+        outline: none;
+        margin-left: 0.5rem;
+      }
+
+      .container smartphone .copy {
+        height: 1.5rem;
+        cursor: pointer;
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 0.5rem;
+      }
+
+      .container smartphone a {
+        color: #f5c012;
+        text-decoration: underline;
+        text-underline-offset: 0.5rem;
+      }
+
+      .container smartphone a:hover {
+        color: #b08b10;
+        text-decoration: underline;
+        text-underline-offset: 0.5rem;
+      }
+
+      .container smartphone .nubank {
+        height: 1.5rem;
+      }
     </style>
 
     <!-- Google tag (gtag.js) -->
@@ -167,9 +211,33 @@
           <span>cristiantela/lula2turno</span>
         </a>
       </footer>
+
+      <smartphone>
+        Olá, meu nome é Matheus Cristian, e estou precisando de um celular para
+        trabalhar, pois meu celular quebrou. Doe o valor que puder para me
+        ajudar através da chave pix
+        <input class="email" value="mathues@email.com" />
+        <img class="copy" src="img/copy.svg" alt="Copiar" title="Copiar" /> ou
+        por
+        <a href="https://nubank.com.br/pagar/199pu6/OH6ITDqcpU" target="_blank">
+          este link do Nubank
+          <img src="img/nubank-logo.svg" class="nubank" />
+        </a>
+      </smartphone>
     </div>
 
     <script>
+      document.querySelector(".copy").addEventListener("click", () => {
+        const copyText = document.querySelector(".email");
+        copyText.value = "mathues@email.com";
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); // For mobile devices
+
+        navigator.clipboard.writeText(copyText.value);
+
+        alert("Chave pix copiada!");
+      });
+
       const canvas = document.querySelector("canvas");
       const context = canvas.getContext("2d");
 
