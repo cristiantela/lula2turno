@@ -3,22 +3,53 @@
   <head>
     <!-- Primary Meta Tags -->
     <title>Lula 2º Turno — Gerar flyer de apoio ao Lula com seu nome</title>
-    <meta name="title" content="Lula 2º Turno — Gerar flyer de apoio ao Lula com seu nome">
-    <meta name="description" content="Gere seu flyer personalizado com seu nome de apoio ao Lula para o segundo turno das eleições brasileira.">
+    <meta
+      name="title"
+      content="Lula 2º Turno — Gerar flyer de apoio ao Lula com seu nome"
+    />
+    <meta
+      name="description"
+      content="Gere seu flyer personalizado com seu nome de apoio ao Lula para o segundo turno das eleições brasileira."
+    />
 
     <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://cristiantela.github.io/lula2turno/">
-    <meta property="og:title" content="Lula 2º Turno — Gerar flyer de apoio ao Lula com seu nome">
-    <meta property="og:description" content="Gere seu flyer personalizado com seu nome de apoio ao Lula para o segundo turno das eleições brasileira.">
-    <meta property="og:image" itemprop="image" content="https://cristiantela.github.io/lula2turno/metadata.png">
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://cristiantela.github.io/lula2turno/"
+    />
+    <meta
+      property="og:title"
+      content="Lula 2º Turno — Gerar flyer de apoio ao Lula com seu nome"
+    />
+    <meta
+      property="og:description"
+      content="Gere seu flyer personalizado com seu nome de apoio ao Lula para o segundo turno das eleições brasileira."
+    />
+    <meta
+      property="og:image"
+      itemprop="image"
+      content="https://cristiantela.github.io/lula2turno/metadata.png"
+    />
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://cristiantela.github.io/lula2turno/">
-    <meta property="twitter:title" content="Lula 2º Turno — Gerar flyer de apoio ao Lula com seu nome">
-    <meta property="twitter:description" content="Gere seu flyer personalizado com seu nome de apoio ao Lula para o segundo turno das eleições brasileira.">
-    <meta property="twitter:image" content="https://cristiantela.github.io/lula2turno/metadata.png">
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:url"
+      content="https://cristiantela.github.io/lula2turno/"
+    />
+    <meta
+      property="twitter:title"
+      content="Lula 2º Turno — Gerar flyer de apoio ao Lula com seu nome"
+    />
+    <meta
+      property="twitter:description"
+      content="Gere seu flyer personalizado com seu nome de apoio ao Lula para o segundo turno das eleições brasileira."
+    />
+    <meta
+      property="twitter:image"
+      content="https://cristiantela.github.io/lula2turno/metadata.png"
+    />
 
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -27,7 +58,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans&display=swap"
       rel="stylesheet"
     />
 
@@ -36,6 +67,7 @@
         background-color: rgb(21, 21, 21);
         font-size: 18px;
         margin: 0;
+        font-family: 'Open Sans', sans-serif;
       }
 
       .container {
@@ -71,16 +103,48 @@
         margin: 0 auto;
         margin-bottom: 1rem;
       }
+
+      .container footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 1rem;
+        row-gap: 0.5rem;
+      }
+
+      .container footer a {
+        color: #f5c012;
+        text-decoration: none;
+        column-gap: 0.25rem;
+      }
+
+      .container footer a {
+        display: flex;
+        align-items: center;
+      }
+
+      .container footer a img {
+        height: 1.5rem;
+      }
+
+      .container footer a img.profile {
+        border-radius: 50%;
+      }
     </style>
-    
+
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XG904CQWTP"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-XG904CQWTP"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-      gtag('config', 'G-XG904CQWTP');
+      gtag("config", "G-XG904CQWTP");
     </script>
   </head>
   <body>
@@ -90,6 +154,19 @@
       <button>Salvar Imagem</button>
 
       <canvas width="1080" height="1080"></canvas>
+
+      <footer>
+        <a href="https://www.instagram.com/cristianfrontend/" target="_blank">
+          <img src="img/cristiantela-profile.png" class="profile" />
+          <img src="img/instagram-logo.svg" />
+          <span><b>cristian</b>frontend</span>
+        </a>
+
+        <a href="https://github.com/cristiantela/lula2turno" target="_blank">
+          <img src="img/github-logo.svg" />
+          <span>cristiantela/lula2turno</span>
+        </a>
+      </footer>
     </div>
 
     <script>
