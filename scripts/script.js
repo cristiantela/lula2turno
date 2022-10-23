@@ -19,7 +19,7 @@ document
 async function shareImage() {
   canvas.toBlob((blob) => {
     const filesArray = [
-      new File([blob], document.querySelector("input").value.trim(), {
+      new File([blob], document.querySelector("input").value.trim() + ".jpg", {
         type: "image/jpeg",
         lastModified: new Date().getTime(),
       }),
