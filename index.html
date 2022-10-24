@@ -135,7 +135,6 @@
         display: block;
         color: #1da60e;
         margin: 2rem 0;
-        font-weight: bold;
       }
 
       .container smartphone input {
@@ -214,38 +213,22 @@
       </footer>
 
       <smartphone>
-        Olá, meu nome é Matheus Cristian, e estou precisando de um celular para
-        trabalhar, pois o meu celular quebrou. Doe o valor que puder para me
-        ajudar através da chave pix
-        <input class="email" value="mathues@email.com" />
-        <img
-          data-copy="mathues@email.com"
-          data-done="copy sucessful"
-          class="copy"
-          src="img/copy.svg"
-          alt="Copiar"
-          title="Copiar"
-        />
-        ou por
-        <a href="https://nubank.com.br/pagar/199pu6/OH6ITDqcpU" target="_blank">
-          este link do Nubank
-          <img src="img/nubank-logo.svg" class="nubank" />
-        </a>
+        <b>
+          Companheiros e companheiras, agradeço a todos que ajudaram e doaram,
+          com a ajuda de vocês consegui comprar um celular para trabalhar e sou
+          imensamente grato, saliento ainda que, esta página não tem nenhum
+          contato com o instagram @lula.turno2 (do qual possui o total direito
+          de imagem pela criação e administrado por @joaonogueraa), o que fiz,
+          foi apenas facilitar o processo de criação das tags customizados com
+          os nomes, ou seja, o desenvolvimento desta página, em prol da campanha
+          de Lula.
+        </b>
+        <br />
+        24 de Outubro de 2022
       </smartphone>
     </div>
 
     <script>
-      document.querySelector(".copy").addEventListener("click", () => {
-        const copyText = document.querySelector(".email");
-        copyText.value = "mathues@email.com";
-        copyText.select();
-        copyText.setSelectionRange(0, 99999); // For mobile devices
-
-        navigator.clipboard.writeText(copyText.value);
-
-        alert("Chave pix copiada!");
-      });
-
       const canvas = document.querySelector("canvas");
       const context = canvas.getContext("2d");
 
