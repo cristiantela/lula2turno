@@ -91,11 +91,7 @@ document
 
     context.fillStyle = "white";
     context.fillText(
-      document
-        .querySelector("input")
-        .value.trim()
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, ""),
+      document.querySelector("input").value.trim(),
       -width / 2,
       0
     );
