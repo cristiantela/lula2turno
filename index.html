@@ -70,6 +70,39 @@
         font-family: "Open Sans", sans-serif;
       }
 
+      .navbar {
+        background-color: #107b29;
+        color: white;
+        padding: 0.5rem 0;
+        font-weight: bold;
+        text-align: left;
+      }
+
+      .navbar a {
+        color: inherit;
+        display: block;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .navbar a img {
+        height: 1.2rem;
+      }
+
+      .navbar a img.preview {
+        height: 2rem;
+        border: 1px solid #f5c012;
+      }
+
+      .navbar .container {
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+      }
+
       .container {
         width: 90%;
         max-width: 700px;
@@ -192,6 +225,22 @@
     <script src="js/clipboardtext.js"></script>
   </head>
   <body>
+    <div class="navbar">
+      <div class="container">
+        <a href="photo/">
+          <img src="img/right-arrow-svgrepo.svg">
+          <img src="photo/metadata.png" class="preview">
+          Acessar o gerador de filtro com sua foto
+        </a>
+
+        <a href="linear/">
+          <img src="img/right-arrow-svgrepo.svg">
+          <img src="linear/metadata.png" class="preview">
+          Acessar o gerador de tag (alternativa)
+        </a>
+      </div>
+    </div>
+
     <div class="container">
       <input type="text" />
 

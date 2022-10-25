@@ -2,53 +2,53 @@
 <html lang="en">
   <head>
     <!-- Primary Meta Tags -->
-    <title>Lula 2º Turno — Gerar imagem de apoio ao Lula com sua foto</title>
+    <title>Lula 2º Turno — Gerar flyer de apoio ao Lula com seu nome (alternativa)</title>
     <meta
       name="title"
-      content="Lula 2º Turno — Gerar imagem de apoio ao Lula com sua foto"
+      content="Lula 2º Turno — Gerar flyer de apoio ao Lula com seu nome"
     />
     <meta
       name="description"
-      content="Gere sua imagem personalizada com sua foto de apoio ao Lula para o segundo turno das eleições brasileira"
+      content="Gere seu flyer personalizado com seu nome de apoio ao Lula para o segundo turno das eleições brasileira"
     />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta
       property="og:url"
-      content="https://cristiantela.github.io/lula2turno/"
+      content="https://cristiantela.github.io/lula2turno/linear/"
     />
     <meta
       property="og:title"
-      content="Lula 2º Turno — Gerar imagem de apoio ao Lula com sua foto"
+      content="Lula 2º Turno — Gerar flyer de apoio ao Lula com seu nome"
     />
     <meta
       property="og:description"
-      content="Gere sua imagem personalizada com sua foto de apoio ao Lula para o segundo turno das eleições brasileira"
+      content="Gere seu flyer personalizado com seu nome de apoio ao Lula para o segundo turno das eleições brasileira"
     />
     <meta
       property="og:image"
       itemprop="image"
-      content="https://cristiantela.github.io/lula2turno/photo/metadata.png"
+      content="https://cristiantela.github.io/lula2turno/linear/metadata.png"
     />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta
       property="twitter:url"
-      content="https://cristiantela.github.io/lula2turno/"
+      content="https://cristiantela.github.io/lula2turno/linear/"
     />
     <meta
       property="twitter:title"
-      content="Lula 2º Turno — Gerar imagem de apoio ao Lula com sua foto"
+      content="Lula 2º Turno — Gerar flyer de apoio ao Lula com seu nome"
     />
     <meta
       property="twitter:description"
-      content="Gere sua imagem personalizada com sua foto de apoio ao Lula para o segundo turno das eleições brasileira"
+      content="Gere seu flyer personalizado com seu nome de apoio ao Lula para o segundo turno das eleições brasileira"
     />
     <meta
       property="twitter:image"
-      content="https://cristiantela.github.io/lula2turno/photo/metadata.png"
+      content="https://cristiantela.github.io/lula2turno/linear/metadata.png"
     />
 
     <meta charset="UTF-8" />
@@ -58,7 +58,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans&family=Signika:wght@400;700&display=swap"
       rel="stylesheet"
     />
 
@@ -102,6 +102,7 @@
         flex-direction: column;
         gap: 0.2rem;
       }
+
 
       .container {
         width: 90%;
@@ -147,9 +148,9 @@
       }
 
       .container footer a {
-        color: #f5c012;
         text-decoration: none;
         column-gap: 0.25rem;
+        color: inherit;
       }
 
       .container footer a {
@@ -223,21 +224,20 @@
 
       gtag("config", "G-XG904CQWTP");
     </script>
-    <script src="../js/clipboardtext.js"></script>
   </head>
   <body>
     <div class="navbar">
       <div class="container">
-        <a href="../linear/">
+        <a href="../photo/">
           <img src="../img/right-arrow-svgrepo.svg">
-          <img src="../linear/metadata.png" class="preview">
-          Acessar o gerador de tag
+          <img src="../photo/metadata.png" class="preview">
+          Acesse o gerador de filtro com sua foto
         </a>
       </div>
     </div>
 
     <div class="container">
-      <input type="file" />
+      <input type="text" />
 
       <button>Salvar Imagem</button>
 
@@ -447,13 +447,13 @@
         "Isabel",
       ];
 
-      // document.querySelector("input").value =
-      //   names[Math.floor(Math.random() * names.length)];
+      document.querySelector("input").value =
+        names[Math.floor(Math.random() * names.length)];
 
       document.querySelector("button").addEventListener("click", () => {
         const a = document.createElement("a");
         a.setAttribute("href", canvas.toDataURL("image/png"));
-        a.setAttribute("download", "image");
+        a.setAttribute("download", name);
         a.click();
       });
 
@@ -473,114 +473,60 @@
           radius = { ...{ tl: 0, tr: 0, br: 0, bl: 0 }, ...radius };
         }
         ctx.beginPath();
-        ctx.moveTo(x + radius.tl, y);
+        ctx.moveTo(x, y);
         ctx.lineTo(x + width - radius.tr, y);
         ctx.quadraticCurveTo(x + width, y, x + width, y + radius.tr);
-        ctx.lineTo(x + width, y + height - radius.br);
-        ctx.quadraticCurveTo(
-          x + width,
-          y + height,
-          x + width - radius.br,
-          y + height
-        );
+        ctx.lineTo(x + width, y + height);
+        // ctx.quadraticCurveTo(
+        //   x + width,
+        //   y + height,
+        //   x + width - radius.br,
+        //   y + height
+        // );
         ctx.lineTo(x + radius.bl, y + height);
         ctx.quadraticCurveTo(x, y + height, x, y + height - radius.bl);
-        ctx.lineTo(x, y + radius.tl);
-        ctx.quadraticCurveTo(x, y, x + radius.tl, y);
+        // ctx.lineTo(x, y + radius.tl);
+        // ctx.quadraticCurveTo(x, y, x + radius.tl, y);
         ctx.closePath();
         ctx.fill();
       }
 
       baseImage.addEventListener("load", () => {
         function draw() {
+          context.clearRect(0, 0, canvas.width, canvas.height);
           context.drawImage(baseImage, 0, 0);
 
-          /*
           context.save();
 
           context.translate(540, 348);
-          context.rotate((-2 * Math.PI) / 180);
+
+          const name = document.querySelector("input").value.trim().toUpperCase();
 
           context.textBaseline = "middle";
-          context.font = "196.13px Bebas Neue";
-          const width = context.measureText(
-            document.querySelector("input").value.trim()
-          ).width;
+          context.font = "bold 146.13px Signika";
+          const width = context.measureText(name).width;
 
-          context.fillStyle = "#1ABC4C";
+          const paddingWidth = 30;
+
+          context.fillStyle = "#FFE600";
           roundRect(
             context,
-            -width / 2 - 25,
+            -width / 2 - paddingWidth,
             -184 / 2,
-            width + 25 * 2,
+            width + (paddingWidth * 2),
             184,
-            21.66
+            60
           );
 
-          context.fillStyle = "white";
-          context.fillText(
-            document.querySelector("input").value.trim(),
-            -width / 2,
-            20
-          );
+          context.fillStyle = "#313131";
+          context.fillText(name, -width / 2, 15);
 
           context.restore();
-          */
 
-          // setTimeout(draw, 100);
-
-          document
-            .querySelector('input[type="file"]')
-            .addEventListener("change", (event) => {
-              var file = event.srcElement.files[0];
-              var reader = new FileReader();
-
-              // context.drawImage();
-
-              reader.addEventListener(
-                "load",
-                function () {
-                  console.log(reader);
-                  const photo = new Image();
-                  photo.src = reader.result;
-                  photo.addEventListener("load", () => {
-                    const oldWidth = photo.width;
-                    photo.width = 1080;
-                    photo.height = (1080 / oldWidth) * photo.height;
-
-                    if (photo.height < 1080) {
-                      const oldHeight = photo.height;
-                      photo.height = 1080;
-                      photo.width = (1080 / oldHeight) * photo.width;
-                    }
-                    console.log(photo.height);
-                    context.drawImage(
-                      photo,
-                      0 - (photo.width - 1080) / 2,
-                      0 - (photo.height - 1080) / 2,
-                      photo.width,
-                      photo.height
-                    );
-                    draw();
-                  });
-                },
-                false
-              );
-
-              if (file) {
-                reader.readAsDataURL(file);
-              }
-            });
+          setTimeout(draw, 100);
         }
 
         draw();
-
-        const image = new Image();
-        image.src = "./base-2.png";
-        image.addEventListener("load", () => {
-          context.drawImage(image, 0, 0);
-          draw();
-        });
       });
     </script>
   </body>
