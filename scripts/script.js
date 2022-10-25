@@ -1,13 +1,16 @@
 const canvas = document.querySelector("canvas");
 const context = canvas.getContext("2d");
-const edoFont = new FontFace("myEdoFont", "url(./assets/edo.ttf)");
-edoFont.load().then(function (font) {
+const pantonFont = new FontFace(
+  "myPantonFont",
+  "url(./assets/panton-extrabold.otf)"
+);
+pantonFont.load().then(function (font) {
   // with canvas, if this is ommited won't work
   document.fonts.add(font);
 });
 
 const baseImage = new Image();
-baseImage.src = "./bolsonaro22.png";
+baseImage.src = "./apoioBolsonaro22.png";
 
 document
   .querySelector("button[name=save]")
@@ -15,6 +18,31 @@ document
 document
   .querySelector("button[name=share]")
   .addEventListener("click", shareImage);
+
+function roundRect(ctx, x, y, width, height, radius = 5) {
+  if (typeof radius === "number") {
+    radius = { tl: radius, tr: radius, br: radius, bl: radius };
+  } else {
+    radius = { ...{ tl: 0, tr: 0, br: 0, bl: 0 }, ...radius };
+  }
+  ctx.beginPath();
+  ctx.moveTo(x + radius.tl, y);
+  ctx.lineTo(x + width - radius.tr, y);
+  ctx.quadraticCurveTo(x + width, y, x + width, y + radius.tr);
+  ctx.lineTo(x + width, y + height - radius.br);
+  ctx.quadraticCurveTo(
+    x + width,
+    y + height,
+    x + width - radius.br,
+    y + height
+  );
+  ctx.lineTo(x + radius.bl, y + height);
+  ctx.quadraticCurveTo(x, y + height, x, y + height - radius.bl);
+  ctx.lineTo(x, y + radius.tl);
+  ctx.quadraticCurveTo(x, y, x + radius.tl, y);
+  ctx.closePath();
+  ctx.fill();
+}
 
 async function shareImage() {
   canvas.toBlob((blob) => {
@@ -48,15 +76,18 @@ document
 
     context.save();
 
-    context.translate(400, 230);
-    context.rotate((-5 * Math.PI) / 180);
+    context.translate(1080 / 2, 335);
+    context.rotate((-6.81 * Math.PI) / 180);
 
     context.textBaseline = "middle";
-    context.font = "65px myEdoFont";
+    context.font = "125px myPantonFont";
 
     const width = context.measureText(
       document.querySelector("input").value.trim()
     ).width;
+
+    context.fillStyle = "#0c67ce";
+    roundRect(context, -width / 2 - 45, -175 / 2, width + 45 * 2, 175, 21.66);
 
     context.fillStyle = "white";
     context.fillText(
