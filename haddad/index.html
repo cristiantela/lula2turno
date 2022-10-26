@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Primary Meta Tags -->
+    <title>
+      Haddad 2º Turno — Gerar flyer de apoio ao Haddad com seu nome (alternativa)
+    </title>
+    <meta
+      name="title"
+      content="Haddad 2º Turno — Gerar flyer de apoio ao Haddad com seu nome"
+    />
+    <meta
+      name="description"
+      content="Gere seu flyer personalizado com seu nome de apoio ao Haddad para o segundo turno das eleições brasileira"
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://cristiantela.github.io/lula2turno/haddad/"
+    />
+    <meta
+      property="og:title"
+      content="Haddad 2º Turno — Gerar flyer de apoio ao Haddad com seu nome"
+    />
+    <meta
+      property="og:description"
+      content="Gere seu flyer personalizado com seu nome de apoio ao Haddad para o segundo turno das eleições brasileira"
+    />
+    <meta
+      property="og:image"
+      itemprop="image"
+      content="https://cristiantela.github.io/lula2turno/haddad/metadata.png"
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:url"
+      content="https://cristiantela.github.io/lula2turno/haddad/"
+    />
+    <meta
+      property="twitter:title"
+      content="Haddad 2º Turno — Gerar flyer de apoio ao Haddad com seu nome"
+    />
+    <meta
+      property="twitter:description"
+      content="Gere seu flyer personalizado com seu nome de apoio ao Haddad para o segundo turno das eleições brasileira"
+    />
+    <meta
+      property="twitter:image"
+      content="https://cristiantela.github.io/lula2turno/haddad/metadata.png"
+    />
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Haddad 2° Turno</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans&family=Signika:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        background-color: rgb(21, 21, 21);
+        font-size: 18px;
+        margin: 0;
+        font-family: "Open Sans", sans-serif;
+      }
+
+      .navbar {
+        background-color: #107b29;
+        color: white;
+        padding: 0.5rem 0;
+        font-weight: bold;
+        text-align: left;
+      }
+
+      .navbar a {
+        color: inherit;
+        display: block;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .navbar a img {
+        height: 1.2rem;
+      }
+
+      .navbar a img.preview {
+        height: 2rem;
+        border: 1px solid #f5c012;
+      }
+
+      .navbar .container {
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 700px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .container input {
+        font-size: 1rem;
+        border-radius: 0.4rem;
+        padding: 0.5rem 1rem;
+        margin: 1rem 0;
+        border: 1px solid grey;
+      }
+
+      .container button {
+        font-size: 1rem;
+        border-radius: 0.4rem;
+        padding: 0.5rem 1rem;
+        margin: 1rem 0;
+        border-width: 0;
+        border-bottom: 2px solid rgb(9, 99, 37);
+        background-color: #107b29;
+        color: white;
+        cursor: pointer;
+      }
+
+      .container canvas {
+        display: block;
+        width: 80%;
+        margin: 0 auto;
+        margin-bottom: 1rem;
+      }
+
+      .container footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 1rem;
+        row-gap: 0.5rem;
+        color: #f5c012;
+      }
+
+      .container footer a {
+        text-decoration: none;
+        column-gap: 0.25rem;
+        color: inherit;
+      }
+
+      .container footer a {
+        display: flex;
+        align-items: center;
+      }
+
+      .container footer a img {
+        height: 1.5rem;
+      }
+
+      .container footer a img.profile {
+        border-radius: 50%;
+      }
+
+      .container smartphone {
+        display: block;
+        color: #1da60e;
+        margin: 2rem 0;
+      }
+
+      .container smartphone input {
+        height: 1.75rem;
+        margin: 0;
+        padding: 0 0.5rem;
+        box-sizing: border-box;
+        font-size: 1rem;
+        border: 1px solid #f5c012;
+        background-color: transparent;
+        color: #f5c012;
+        outline: none;
+        margin-left: 0.5rem;
+      }
+
+      .container smartphone b {
+        color: #f5c012;
+      }
+
+      .container smartphone .copy {
+        height: 1.5rem;
+        cursor: pointer;
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 0.5rem;
+      }
+
+      .container smartphone a {
+        color: #f5c012;
+        text-decoration: underline;
+        text-underline-offset: 0.5rem;
+        font-weight: bold;
+      }
+
+      .container smartphone a:hover {
+        color: #b08b10;
+        text-decoration: underline;
+        text-underline-offset: 0.5rem;
+      }
+
+      .container smartphone .nubank {
+        height: 1.5rem;
+      }
+    </style>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-XG904CQWTP"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-XG904CQWTP");
+    </script>
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="container">
+        <a href="../photo/">
+          <img src="../img/right-arrow-svgrepo.svg" />
+          <img src="../photo/metadata.png" class="preview" />
+          Acessar o gerador de filtro do Lula com sua foto
+        </a>
+
+        <a href="../linear/">
+          <img src="../img/right-arrow-svgrepo.svg" />
+          <img src="../linear/metadata.png" class="preview" />
+          Acessar o gerador de tag do Lula
+        </a>
+      </div>
+    </div>
+
+    <div class="container">
+      <input type="text" />
+
+      <button>Salvar Imagem</button>
+
+      <canvas width="1080" height="1080"></canvas>
+
+      <footer>
+        Desenvolvido por:
+
+        <a href="https://www.instagram.com/cristianfrontend/" target="_blank">
+          <img src="../img/cristiantela-profile.png" class="profile" />
+          <img src="../img/instagram-logo.svg" />
+          <span><b>cristian</b>frontend</span>
+        </a>
+
+        <a href="https://www.linkedin.com/in/cristiantela/" target="_blank">
+          <img src="../img/linkedin-logo.svg" />
+          <span>cristiantela</span>
+        </a>
+
+        <a href="https://github.com/cristiantela/lula2turno" target="_blank">
+          <img src="../img/github-logo.svg" />
+          <span>cristiantela/lula2turno</span>
+        </a>
+      </footer>
+
+      <smartphone>
+        Olá, me chamo Matheus Cristian, estou dedicando algumas horas desses
+        últimos dias no desenvolvimento deste sistema, se você gostou dessa
+        iniciativa e deseja me apoiar financeiramente, segue minha chave pix:
+        <b>mathues@email.com</b> ou
+        <a href="https://nubank.com.br/pagar/199pu6/OH6ITDqcpU" target="_blank">
+          clicando aqui neste link do Nubank
+          <img src="../img/nubank-logo.svg" class="nubank" />
+        </a>
+      </smartphone>
+    </div>
+
+    <script>
+      const canvas = document.querySelector("canvas");
+      const context = canvas.getContext("2d");
+
+      const baseImage = new Image();
+      baseImage.src = "./base.png";
+
+      const names = [
+        "Jose",
+        "João",
+        "Joao",
+        "Antônio",
+        "Antonio",
+        "Francisco",
+        "Carlos",
+        "Paulo",
+        "Pedro",
+        "Lucas",
+        "Luiz",
+        "Luíz",
+        "Marcos",
+        "Luis",
+        "Luís",
+        "Gabriel",
+        "Rafael",
+        "Daniel",
+        "Marcelo",
+        "Bruno",
+        "Eduardo",
+        "Felipe",
+        "Raimundo",
+        "Rodrigo",
+        "Manoel",
+        "Mateus",
+        "André",
+        "André",
+        "Fernando",
+        "Fábio",
+        "Fabio",
+        "Leonardo",
+        "Gustavo",
+        "Guilherme",
+        "Leandro",
+        "Tiago",
+        "Ânderson",
+        "Anderson",
+        "Ricardo",
+        "Márcio",
+        "Marcio",
+        "Jorge",
+        "Sebastião",
+        "Sebastiao",
+        "Alexandre",
+        "Roberto",
+        "Édson",
+        "Edson",
+        "Diego",
+        "Vítor",
+        "Vitor",
+        "Sérgio",
+        "Sergio",
+        "Cláudio",
+        "Claudio",
+        "Matheus",
+        "Thiago",
+        "Geraldo",
+        "Adriano",
+        "Luciano",
+        "Júlio",
+        "Julio",
+        "Renato",
+        "Alex",
+        "Vinícius",
+        "Vinicius",
+        "Rogério",
+        "Rogerio",
+        "Samuel",
+        "Ronaldo",
+        "Mário",
+        "Mario",
+        "Flávio",
+        "Flavio",
+        "Ígor",
+        "Igor",
+        "Douglas",
+        "Daví",
+        "Davi",
+        "Manuel",
+        "Maria",
+        "Ana",
+        "Francisca",
+        "Antônia",
+        "Antonia",
+        "Adriana",
+        "Juliana",
+        "Márcia",
+        "Marcia",
+        "Fernanda",
+        "Patricia",
+        "Patrícia",
+        "Aline",
+        "Sandra",
+        "Camila",
+        "Amanda",
+        "Bruna",
+        "Jéssica",
+        "Jessica",
+        "Leticia",
+        "Letícia",
+        "Júlia",
+        "Julia",
+        "Luciana",
+        "Vanessa",
+        "Mariana",
+        "Gabriela",
+        "Vera",
+        "Vitória",
+        "Vitoria",
+        "Larissa",
+        "Cláudia",
+        "Claudia",
+        "Beatriz",
+        "Luana",
+        "Rita",
+        "Sônia",
+        "Sonia",
+        "Renata",
+        "Eliane",
+        "Josefa",
+        "Simone",
+        "Natália",
+        "Natalia",
+        "Cristiane",
+        "Carla",
+        "Débora",
+        "Debora",
+        "Rosângela",
+        "Rosangela",
+        "Jaqueline",
+        "Rosa",
+        "Daniela",
+        "Aparecida",
+        "Marlene",
+        "Terezinha",
+        "Raimunda",
+        "Andréia",
+        "Andreia",
+        "Fabiana",
+        "Lúcia",
+        "Lucia",
+        "Raquel",
+        "Ângela",
+        "Angela",
+        "Rafaela",
+        "Joana",
+        "Luzía",
+        "Luzia",
+        "Elaine",
+        "Daniele",
+        "Regina",
+        "Dáiane",
+        "Daiane",
+        "Suelí",
+        "Sueli",
+        "Alessandra",
+        "Isabel",
+      ];
+
+      document.querySelector("input").value =
+        names[Math.floor(Math.random() * names.length)];
+
+      document.querySelector("button").addEventListener("click", () => {
+        gtag("event", "download");
+        const a = document.createElement("a");
+        a.setAttribute("href", canvas.toDataURL("image/png"));
+        a.setAttribute("download", name);
+        a.click();
+      });
+
+      function roundRect(
+        ctx,
+        x,
+        y,
+        width,
+        height,
+        radius = 5,
+        fill = false,
+        stroke = true
+      ) {
+        if (typeof radius === "number") {
+          radius = { tl: radius, tr: radius, br: radius, bl: radius };
+        } else {
+          radius = { ...{ tl: 0, tr: 0, br: 0, bl: 0 }, ...radius };
+        }
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+        ctx.lineTo(x + width, y);
+        // ctx.quadraticCurveTo(x + width, y, x + width, y + radius.tr);
+        ctx.lineTo(x + width, y + height);
+        // ctx.quadraticCurveTo(
+        //   x + width,
+        //   y + height,
+        //   x + width - radius.br,
+        //   y + height
+        // );
+        ctx.lineTo(x, y + height);
+        // ctx.quadraticCurveTo(x, y + height, x, y + height - radius.bl);
+        // ctx.lineTo(x, y + radius.tl);
+        // ctx.quadraticCurveTo(x, y, x + radius.tl, y);
+        ctx.closePath();
+        ctx.fill();
+      }
+
+      baseImage.addEventListener("load", () => {
+        function draw() {
+          context.clearRect(0, 0, canvas.width, canvas.height);
+          context.drawImage(baseImage, 0, 0);
+
+          context.save();
+
+          context.translate(540, 348);
+
+          const name = document
+            .querySelector("input")
+            .value.trim()
+            .toUpperCase();
+
+          context.textBaseline = "middle";
+          context.font = "bold 135.13px Signika";
+          const width = context.measureText(name).width;
+
+          const paddingWidth = 30;
+
+          const grad = context.createLinearGradient(-width / 2 - paddingWidth, -184 / 2, width + paddingWidth * 2, 184);
+          grad.addColorStop(0, "#EF813B");
+          grad.addColorStop(1, "#F6BF59");
+
+          context.fillStyle = grad;
+          roundRect(
+            context,
+            -width / 2 - paddingWidth,
+            -184 / 2,
+            width + paddingWidth * 2,
+            184,
+            60
+          );
+
+          context.fillStyle = "#ffffff";
+          context.fillText(name, -width / 2, 15);
+
+          context.restore();
+
+          setTimeout(draw, 100);
+        }
+
+        draw();
+      });
+    </script>
+  </body>
+</html>
