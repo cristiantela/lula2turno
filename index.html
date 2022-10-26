@@ -449,6 +449,7 @@
         names[Math.floor(Math.random() * names.length)];
 
       document.querySelector("button").addEventListener("click", () => {
+        gtag("event", "download");
         const a = document.createElement("a");
         a.setAttribute("href", canvas.toDataURL("image/png"));
         a.setAttribute(

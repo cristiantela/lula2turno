@@ -237,7 +237,7 @@
         <a href="../photo/">
           <img src="../img/right-arrow-svgrepo.svg" />
           <img src="../photo/metadata.png" class="preview" />
-          Acesse o gerador de filtro com sua foto
+          Acessar o gerador de filtro com sua foto
         </a>
       </div>
     </div>
@@ -453,6 +453,7 @@
         names[Math.floor(Math.random() * names.length)];
 
       document.querySelector("button").addEventListener("click", () => {
+        gtag("event", "download");
         const a = document.createElement("a");
         a.setAttribute("href", canvas.toDataURL("image/png"));
         a.setAttribute("download", name);
