@@ -45,6 +45,8 @@ function roundRect(ctx, x, y, width, height, radius = 5) {
 }
 
 async function shareImage() {
+  gtag("event", "share");
+
   canvas.toBlob((blob) => {
     const filesArray = [
       new File([blob], document.querySelector("input").value.trim() + ".jpg", {
@@ -60,6 +62,8 @@ async function shareImage() {
 }
 
 function saveImage() {
+  gtag("event", "download");
+
   const a = document.createElement("a");
   a.setAttribute("href", canvas.toDataURL("image/png"));
   a.setAttribute("download", document.querySelector("input").value.trim());
