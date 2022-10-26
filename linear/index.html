@@ -2,7 +2,9 @@
 <html lang="en">
   <head>
     <!-- Primary Meta Tags -->
-    <title>Lula 2º Turno — Gerar flyer de apoio ao Lula com seu nome (alternativa)</title>
+    <title>
+      Lula 2º Turno — Gerar flyer de apoio ao Lula com seu nome (alternativa)
+    </title>
     <meta
       name="title"
       content="Lula 2º Turno — Gerar flyer de apoio ao Lula com seu nome"
@@ -103,7 +105,6 @@
         gap: 0.2rem;
       }
 
-
       .container {
         width: 90%;
         max-width: 700px;
@@ -185,6 +186,10 @@
         margin-left: 0.5rem;
       }
 
+      .container smartphone b {
+        color: #f5c012;
+      }
+
       .container smartphone .copy {
         height: 1.5rem;
         cursor: pointer;
@@ -197,6 +202,7 @@
         color: #f5c012;
         text-decoration: underline;
         text-underline-offset: 0.5rem;
+        font-weight: bold;
       }
 
       .container smartphone a:hover {
@@ -229,8 +235,8 @@
     <div class="navbar">
       <div class="container">
         <a href="../photo/">
-          <img src="../img/right-arrow-svgrepo.svg">
-          <img src="../photo/metadata.png" class="preview">
+          <img src="../img/right-arrow-svgrepo.svg" />
+          <img src="../photo/metadata.png" class="preview" />
           Acesse o gerador de filtro com sua foto
         </a>
       </div>
@@ -264,13 +270,14 @@
       </footer>
 
       <smartphone>
-        <b>
-          Companheiros e companheiras, agradeço a todos que ajudaram e doaram,
-          com a ajuda de vocês consegui comprar um celular para trabalhar e sou
-          imensamente grato.
-        </b>
-        <br />
-        24 de Outubro de 2022
+        Olá, me chamo Matheus Cristian, estou dedicando algumas horas desses
+        últimos dias no desenvolvimento deste sistema, se você gostou dessa
+        iniciativa e deseja me apoiar financeiramente, segue minha chave pix:
+        <b>mathues@email.com</b> ou
+        <a href="https://nubank.com.br/pagar/199pu6/OH6ITDqcpU" target="_blank">
+          clicando aqui neste link do Nubank
+          <img src="../img/nubank-logo.svg" class="nubank" />
+        </a>
       </smartphone>
     </div>
 
@@ -495,7 +502,10 @@
 
           context.translate(540, 348);
 
-          const name = document.querySelector("input").value.trim().toUpperCase();
+          const name = document
+            .querySelector("input")
+            .value.trim()
+            .toUpperCase();
 
           context.textBaseline = "middle";
           context.font = "bold 146.13px Signika";
@@ -508,7 +518,7 @@
             context,
             -width / 2 - paddingWidth,
             -184 / 2,
-            width + (paddingWidth * 2),
+            width + paddingWidth * 2,
             184,
             60
           );
