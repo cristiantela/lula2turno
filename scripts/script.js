@@ -12,8 +12,8 @@ pantonFont.load().then(function (font) {
 const baseImage = new Image();
 baseImage.src = "./apoioBolsonaro22.png";
 
-document.getElementById("btnSave").addEventListener("click", saveImage);
-document.getElementById("btnShare").addEventListener("click", shareImage);
+// document.getElementById("btnShare").addEventListener("click", shareImage);
+// document.getElementById("btnSave").addEventListener("click", saveImage);
 
 function roundRect(ctx, x, y, width, height, radius = 5) {
   if (typeof radius === "number") {

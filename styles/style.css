@@ -29,6 +29,7 @@ noscript > div {
 }
 
 .container input {
+  display: block;
   font-size: 1.4rem;
   border-radius: 0.4rem;
   padding: 0.8rem 1rem;
@@ -38,7 +39,9 @@ noscript > div {
   box-shadow: 0;
 }
 
-.container button {
+.container .btnAcao {
+  display: inline-block;
+  text-decoration: none;
   font-size: 1.3rem;
   border-radius: 0.4rem;
   padding: 0.7rem 2rem;
@@ -49,7 +52,7 @@ noscript > div {
   color: white;
   cursor: pointer;
 }
-.container button:hover {
+.container .btnAcao:hover {
   background-color: #0d6121;
 }
 
