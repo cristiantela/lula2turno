@@ -128,6 +128,13 @@
         background-color: #107b29;
         color: white;
         cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .container button img {
+        height: 1rem;
       }
 
       .container canvas {
@@ -248,7 +255,11 @@
     <div class="container">
       <input type="text" />
 
-      <button>Salvar Imagem</button>
+      <button class="save">Salvar Imagem</button>
+      <button class="share">
+        Compartilhar
+        <img src="img/share.svg" />
+      </button>
 
       <canvas width="1080" height="1080"></canvas>
 
@@ -272,7 +283,7 @@
         <b>mathues@email.com</b> ou
         <a href="https://nubank.com.br/pagar/199pu6/OH6ITDqcpU" target="_blank">
           clicando aqui neste link do Nubank
-          <img src="../img/nubank-logo.svg" class="nubank" />
+          <img src="img/nubank-logo.svg" class="nubank" />
         </a>
       </smartphone>
     </div>
@@ -448,7 +459,7 @@
       document.querySelector("input").value =
         names[Math.floor(Math.random() * names.length)];
 
-      document.querySelector("button").addEventListener("click", () => {
+      document.querySelector("button.save").addEventListener("click", () => {
         gtag("event", "download");
         const a = document.createElement("a");
         a.setAttribute("href", canvas.toDataURL("image/png"));
@@ -457,6 +468,29 @@
           document.querySelector("input").value.trim()
         );
         a.click();
+      });
+
+      document.querySelector("button.share").addEventListener("click", () => {
+        gtag("event", "share");
+
+        canvas.toBlob((blob) => {
+          const filesArray = [
+            new File(
+              [blob],
+              document.querySelector("input").value.trim() + ".jpg",
+              {
+                type: "image/jpeg",
+                lastModified: new Date().getTime(),
+              }
+            ),
+          ];
+
+          const shareData = {
+            files: filesArray,
+          };
+
+          navigator.share(shareData);
+        });
       });
 
       function roundRect(
