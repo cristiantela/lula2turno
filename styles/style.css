@@ -1,14 +1,26 @@
 body {
-  background-color: rgb(21, 21, 21);
+  background-color: #212121;
   font-size: 18px;
   margin: 0;
   font-family: "Open Sans", sans-serif;
+}
+
+noscript > div {
+  color: #fff;
+  font-size: 18px;
+  font-family: "Open Sans", sans-serif;
+  background-color: red;
+  display: block;
+  padding: 25px 10px;
+  margin: 0;
+  text-align: center;
 }
 
 .container {
   width: 90%;
   max-width: 700px;
   margin: 0 auto;
+  margin-bottom: 80px;
   text-align: center;
 }
 
@@ -17,23 +29,28 @@ body {
 }
 
 .container input {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   border-radius: 0.4rem;
-  padding: 0.5rem 1rem;
+  padding: 0.8rem 1rem;
   margin: 0 0 .5rem;
-  border: 1px solid grey;
+  border: 0px;
+  width: calc(100% - 2rem);
+  box-shadow: 0;
 }
 
 .container button {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   border-radius: 0.4rem;
-  padding: 0.5rem 1rem;
+  padding: 0.7rem 2rem;
   margin: 0 0 .5rem;
   border-width: 0;
   border-bottom: 2px solid rgb(9, 99, 37);
   background-color: #107b29;
   color: white;
   cursor: pointer;
+}
+.container button:hover {
+  background-color: #0d6121;
 }
 
 .container canvas {

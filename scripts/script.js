@@ -47,27 +47,49 @@ function roundRect(ctx, x, y, width, height, radius = 5) {
 async function shareImage() {
   gtag("event", "share");
 
-  canvas.toBlob((blob) => {
-    const filesArray = [
-      new File([blob], document.querySelector("input").value.trim() + ".jpg", {
-        type: "image/jpeg",
-        lastModified: new Date().getTime(),
-      }),
-    ];
-    const shareData = {
-      files: filesArray,
-    };
-    navigator.share(shareData);
-  });
+  try {
+    canvas.toBlob((blob) => {
+      const filesArray = [
+        new File(
+          [blob],
+          document.querySelector("input").value.trim() + ".jpg",
+          {
+            type: "image/jpeg",
+            lastModified: new Date().getTime(),
+          }
+        ),
+      ];
+      const shareData = {
+        files: filesArray,
+      };
+      navigator.share(shareData);
+    });
+  } catch (error) {
+    gtag("event", "exception", {
+      description: "[fn:shareImage] " + (error.message || error),
+      fatal: false,
+    });
+    Alert(
+      "Não foi possível compartilhar a imagem: " + (error.message || error)
+    );
+  }
 }
 
 function saveImage() {
   gtag("event", "download");
 
-  const a = document.createElement("a");
-  a.setAttribute("href", canvas.toDataURL("image/png"));
-  a.setAttribute("download", document.querySelector("input").value.trim());
-  a.click();
+  try {
+    const a = document.createElement("a");
+    a.setAttribute("href", canvas.toDataURL("image/png"));
+    a.setAttribute("download", document.querySelector("input").value.trim());
+    a.click();
+  } catch (error) {
+    gtag("event", "exception", {
+      description: "[fn:saveImage] " + (error.message || error),
+      fatal: false,
+    });
+    Alert("Não foi possível baixar a imagem: " + (error.message || error));
+  }
 }
 
 document
