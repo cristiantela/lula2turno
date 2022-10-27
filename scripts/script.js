@@ -12,8 +12,8 @@ pantonFont.load().then(function (font) {
 const baseImage = new Image();
 baseImage.src = "./apoioBolsonaro22.png";
 
-// document.getElementById("btnShare").addEventListener("click", shareImage);
-// document.getElementById("btnSave").addEventListener("click", saveImage);
+document.getElementById("btnShare").addEventListener("click", shareImage);
+document.getElementById("btnSave").addEventListener("click", saveImage);
 
 function roundRect(ctx, x, y, width, height, radius = 5) {
   if (typeof radius === "number") {
@@ -43,6 +43,7 @@ function roundRect(ctx, x, y, width, height, radius = 5) {
 async function shareImage() {
   try {
     gtag("event", "share");
+
     canvas.toBlob((blob) => {
       const filesArray = [
         new File(
@@ -54,9 +55,8 @@ async function shareImage() {
           }
         ),
       ];
-      const shareData = {
-        files: filesArray,
-      };
+      const shareData = { files: filesArray };
+
       navigator.share(shareData);
     });
   } catch (error) {
@@ -73,6 +73,7 @@ async function shareImage() {
 function saveImage() {
   try {
     gtag("event", "download");
+
     const a = document.createElement("a");
     a.setAttribute("href", canvas.toDataURL("image/png"));
     a.setAttribute("download", document.querySelector("input").value.trim());
