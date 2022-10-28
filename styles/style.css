@@ -16,6 +16,44 @@ noscript > div {
   text-align: center;
 }
 
+.btn {
+  border: 0;
+  border-radius: 0;
+  font-size: 18px;
+  text-decoration: none;
+  padding: 10px 20px;
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+}
+.btn:hover {
+  opacity: 0.7;
+}
+
+.navbar {
+  background-color: #212121;
+  border: none;
+  border-radius: 0;
+  margin: 10px 0;
+  opacity: 0.9;
+  display: flex;
+  justify-content: space-between;
+  /* flex-direction: column; */
+}
+
+.navbar .btnDoe {
+  padding: 6px 20px !important;
+  font-size: 16px;
+  background-color: #04cef1;
+  color: #000;
+}
+
+.navbar .btnAjuda {
+  padding: 6px 20px !important;
+  font-size: 16px;
+  background-color: #ffee00;
+  color: #000;
+}
+
 .container {
   width: 90%;
   max-width: 700px;
@@ -25,41 +63,36 @@ noscript > div {
 }
 
 .container .form-input {
+  display: flex;
+  flex-direction: column;
   margin-bottom: 1rem;
 }
 
 .container input {
-  display: block;
-  font-size: 1.4rem;
-  border-radius: 0.4rem;
-  padding: 0.8rem 1rem;
-  margin: 0 0 .5rem;
-  border: 0px;
-  width: calc(100% - 2rem);
-  box-shadow: 0;
+  padding: 10px;
+  border: 1px solid #fff;
+  border-radius: 0;
+  font-size: 18px;
+  background-color: #fff;
+  color: #212121;
+  margin-bottom: 0.5rem;
 }
 
-.container .btnAcao {
-  display: inline-block;
-  text-decoration: none;
-  font-size: 1.3rem;
-  border-radius: 0.4rem;
-  padding: 0.7rem 2rem;
-  margin: 0 0 .5rem;
-  border-width: 0;
-  border-bottom: 2px solid rgb(9, 99, 37);
-  background-color: #107b29;
+.container .btnSave {
+  background-color: #00781c;
   color: white;
-  cursor: pointer;
 }
-.container .btnAcao:hover {
-  background-color: #0d6121;
+.container .btnShare {
+  background-color: #00781c;
+  color: white;
+  padding-left: 35px;
+  padding-right: 35px;
 }
 
 .container canvas {
   display: block;
-  width: 100%;
-  margin: 1rem auto 1rem;
+  width: 70%;
+  margin: 0 auto 1rem;
 }
 
 .container footer {
