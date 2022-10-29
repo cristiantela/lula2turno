@@ -1,5 +1,6 @@
 const canvas = document.querySelector("canvas");
 const context = canvas.getContext("2d");
+
 const pantonFont = new FontFace(
   "myPantonFont",
   "url(./assets/panton-extrabold.otf)"
@@ -9,8 +10,27 @@ pantonFont.load().then(function (font) {
   document.fonts.add(font);
 });
 
-const baseImage = new Image();
-baseImage.src = "./apoioBolsonaro22.png";
+const btnMenuFigura = document.querySelector(".btnMenuFigura");
+const btnMenuFiltro = document.querySelector(".btnMenuFiltro");
+
+function optionMenu() {
+  return [...document.querySelectorAll("input[name=chkMenu]")][0].checked
+    ? "figura"
+    : [...document.querySelectorAll("input[name=chkMenu]")][1].checked
+    ? "filtro"
+    : false;
+}
+
+const baseImageFigure = new Image();
+baseImageFigure.src = "./apoioBolsonaro22.png";
+
+const baseImageFiltro = new Image();
+baseImageFiltro.src = "./bannerInicial.png";
+
+const baseImageMascara = new Image();
+baseImageMascara.src = "./mascara.png";
+
+let baseImageUsuario = new Image();
 
 document.getElementById("btnShare").addEventListener("click", shareImage);
 document.getElementById("btnSave").addEventListener("click", saveImage);
@@ -74,9 +94,15 @@ function saveImage() {
   try {
     gtag("event", "download");
 
+    if (optionMenu() === "figura") {
+      arquivoName = document.querySelector("input[name=yourname]").value.trim();
+    } else if (optionMenu() === "filtro") {
+      arquivoName = "apoiobolsonaro";
+    }
+
     const a = document.createElement("a");
     a.setAttribute("href", canvas.toDataURL("image/png"));
-    a.setAttribute("download", document.querySelector("input").value.trim());
+    a.setAttribute("download", arquivoName);
     a.click();
   } catch (error) {
     gtag("event", "exception", {
@@ -87,42 +113,111 @@ function saveImage() {
   }
 }
 
-document
-  .querySelector("input[name=yourname]")
-  .addEventListener("keyup", (ev) => {
-    ev.preventDefault();
+function changeMenu() {
+  baseImageUsuario = new Image();
+  context.clearRect(0, 0, canvas.width, canvas.height);
 
-    context.clearRect(0, 0, canvas.width, canvas.height);
-    context.drawImage(baseImage, 0, 0);
+  switch (optionMenu()) {
+    case "figura":
+      btnMenuFigura.classList.add("active");
+      btnMenuFiltro.classList.remove("active");
 
-    context.save();
+      document.querySelector("input[name=yourname]").type = "text";
+      drawArte();
+      break;
+    case "filtro":
+      btnMenuFigura.classList.remove("active");
+      btnMenuFiltro.classList.add("active");
 
+      document.querySelector("input[name=yourname]").type = "file";
+      drawArte();
+      break;
+  }
+}
+
+function drawArte() {
+  const content = document.querySelector("input[name=yourname]").value.trim();
+
+  if (optionMenu() === "figura") {
+    context.drawImage(baseImageFigure, 0, 0);
+  } else if (optionMenu() === "filtro") {
+    if (baseImageUsuario.src) {
+      context.drawImage(baseImageMascara, 0, 0, 1080, 1080);
+    } else {
+      context.drawImage(baseImageFiltro, 0, 0, 1080, 1080);
+    }
+  }
+
+  context.save();
+
+  if (optionMenu() === "figura" && content) {
     context.translate(1080 / 2, 335);
     context.rotate((-6.81 * Math.PI) / 180);
 
     context.textBaseline = "middle";
     context.font = "125px myPantonFont";
 
-    const width = context.measureText(
-      document.querySelector("input").value.trim()
-    ).width;
+    const width = context.measureText(content).width;
 
     context.fillStyle = "#0c67ce";
     roundRect(context, -width / 2 - 45, -175 / 2, width + 45 * 2, 175, 21.66);
 
     context.fillStyle = "white";
-    context.fillText(
-      document.querySelector("input").value.trim(),
-      -width / 2,
-      0
-    );
+    context.fillText(content, -width / 2, 0);
+  }
 
-    context.restore();
+  context.restore();
+}
+
+document
+  .querySelector("input[name=yourname]")
+  .addEventListener("keyup", (ev) => {
+    ev.preventDefault();
+
+    drawArte();
   });
 
-window.onload = () => {
-  context.clearRect(0, 0, canvas.width, canvas.height);
-  context.drawImage(baseImage, 0, 0);
+document
+  .querySelector("input[name=yourname]")
+  .addEventListener("change", (ev) => {
+    ev.preventDefault();
 
-  context.save();
+    if (ev.target.files && ev.target.files[0]) {
+      const reader = new FileReader();
+
+      reader.onload = (ev) => {
+        baseImageUsuario = new Image();
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        baseImageUsuario.src = ev.target.result;
+        baseImageUsuario.addEventListener("load", () => {
+          const oldWidth = baseImageUsuario.width;
+          baseImageUsuario.width = 1080;
+          baseImageUsuario.height = (1080 / oldWidth) * baseImageUsuario.height;
+          if (baseImageUsuario.height < 1080) {
+            const oldHeight = baseImageUsuario.height;
+            baseImageUsuario.height = 1080;
+            baseImageUsuario.width =
+              (1080 / oldHeight) * baseImageUsuario.width;
+          }
+          context.drawImage(
+            baseImageUsuario,
+            0 - (baseImageUsuario.width - 1080) / 2,
+            0 - (baseImageUsuario.height - 1080) / 2,
+            baseImageUsuario.width,
+            baseImageUsuario.height
+          );
+
+          drawArte();
+        });
+      };
+      reader.readAsDataURL(ev.target.files[0]);
+    }
+  });
+
+[...document.querySelectorAll("input[name=chkMenu]")].map((label) => {
+  label.addEventListener("change", changeMenu);
+});
+
+window.onload = () => {
+  drawArte();
 };
