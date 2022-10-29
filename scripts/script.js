@@ -189,6 +189,7 @@ document
         baseImageUsuario = new Image();
         context.clearRect(0, 0, canvas.width, canvas.height);
         baseImageUsuario.src = ev.target.result;
+
         baseImageUsuario.addEventListener("load", () => {
           const oldWidth = baseImageUsuario.width;
           baseImageUsuario.width = 1080;
