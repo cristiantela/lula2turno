@@ -2,67 +2,72 @@
 <html lang="en">
   <head>
     <!-- Primary Meta Tags -->
-    <title>Lula 2º Turno — Gerar flyer de apoio ao Lula com seu nome</title>
+    <title>Lula Liberdade — Gerar flyer de apoio ao Lula com seu nome</title>
     <meta
       name="title"
-      content="Lula 2º Turno — Gerar flyer de apoio ao Lula com seu nome"
+      content="Lula Liberdade — Gerar flyer de apoio ao Lula com seu nome"
     />
     <meta
       name="description"
-      content="Gere seu flyer personalizado com seu nome de apoio ao Lula para o segundo turno das eleições brasileira"
+      content="Gere seu flyer personalizado com seu nome de apoio ao Lula"
     />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta
       property="og:url"
-      content="https://cristiantela.github.io/lula2turno/"
+      content="https://cristiantela.github.io/lula2turno/liberdade/"
     />
     <meta
       property="og:title"
-      content="Lula 2º Turno — Gerar flyer de apoio ao Lula com seu nome"
+      content="Lula Liberdade — Gerar flyer de apoio ao Lula com seu nome"
     />
     <meta
       property="og:description"
-      content="Gere seu flyer personalizado com seu nome de apoio ao Lula para o segundo turno das eleições brasileira"
+      content="Gere seu flyer personalizado com seu nome de apoio ao Lula"
     />
     <meta
       property="og:image"
       itemprop="image"
-      content="https://cristiantela.github.io/lula2turno/metadata.png"
+      content="https://cristiantela.github.io/lula2turno/liberdade/metadata.png"
     />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta
       property="twitter:url"
-      content="https://cristiantela.github.io/lula2turno/"
+      content="https://cristiantela.github.io/lula2turno/liberdade/"
     />
     <meta
       property="twitter:title"
-      content="Lula 2º Turno — Gerar flyer de apoio ao Lula com seu nome"
+      content="Lula Liberdade — Gerar flyer de apoio ao Lula com seu nome"
     />
     <meta
       property="twitter:description"
-      content="Gere seu flyer personalizado com seu nome de apoio ao Lula para o segundo turno das eleições brasileira"
+      content="Gere seu flyer personalizado com seu nome de apoio ao Lula"
     />
     <meta
       property="twitter:image"
-      content="https://cristiantela.github.io/lula2turno/metadata.png"
+      content="https://cristiantela.github.io/lula2turno/liberdade/metadata.png"
     />
 
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lula 2° Turno</title>
+    <title>Haddad 2° Turno</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans&family=Signika:wght@400;700&display=swap"
       rel="stylesheet"
     />
 
     <style>
+      @font-face {
+        font-family: integral-cf-bold;
+        src: url(../fonts/integral-cf-bold.otf) format("opentype");
+      }
+
       body {
         background-color: rgb(21, 21, 21);
         font-size: 18px;
@@ -88,11 +93,11 @@
       }
 
       .navbar a img {
-        /* height: 1.2rem; */
+        height: 1.2rem;
       }
 
       .navbar a img.preview {
-        width: 2rem;
+        height: 2rem;
         border: 1px solid #f5c012;
       }
 
@@ -128,18 +133,11 @@
         background-color: #107b29;
         color: white;
         cursor: pointer;
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-      }
-
-      .container button img {
-        height: 1rem;
       }
 
       .container canvas {
         display: block;
-        width: 80%;
+        width: 30%;
         margin: 0 auto;
         margin-bottom: 1rem;
       }
@@ -154,9 +152,9 @@
       }
 
       .container footer a {
-        color: #f5c012;
         text-decoration: none;
         column-gap: 0.25rem;
+        color: inherit;
       }
 
       .container footer a {
@@ -207,6 +205,7 @@
         color: #f5c012;
         text-decoration: underline;
         text-underline-offset: 0.5rem;
+        font-weight: bold;
       }
 
       .container smartphone a:hover {
@@ -234,21 +233,20 @@
 
       gtag("config", "G-XG904CQWTP");
     </script>
-    <script src="js/clipboardtext.js"></script>
   </head>
   <body>
     <div class="navbar">
       <div class="container">
-        <a href="photo/">
-          <img src="img/right-arrow-svgrepo.svg" />
-          <img src="photo/metadata.png" class="preview" />
-          Acessar o gerador de filtro com sua foto
+        <a href="../photo/">
+          <img src="../img/right-arrow-svgrepo.svg" />
+          <img src="../photo/metadata.png" class="preview" />
+          Acessar o gerador de filtro do Lula com sua foto
         </a>
 
-        <a href="liberdade/">
-          <img src="img/right-arrow-svgrepo.svg" />
-          <img src="liberdade/metadata.png" class="preview" />
-          Acessar o gerador com a palavra Liberdade
+        <a href="../linear/">
+          <img src="../img/right-arrow-svgrepo.svg" />
+          <img src="../linear/metadata.png" class="preview" />
+          Acessar o gerador de tag do Lula
         </a>
       </div>
     </div>
@@ -256,13 +254,9 @@
     <div class="container">
       <input type="text" />
 
-      <button class="save">Salvar Imagem</button>
-      <button class="share">
-        Compartilhar Imagem
-        <img src="img/share.svg" />
-      </button>
+      <button>Salvar Imagem</button>
 
-      <canvas width="1080" height="1080"></canvas>
+      <canvas width="1080" height="1920"></canvas>
 
       <smartphone>
         Olá, me chamo Matheus Cristian, estou em período de mudança para uma
@@ -271,7 +265,7 @@
         <b>mathues@email.com</b> ou
         <a href="https://nubank.com.br/pagar/199pu6/OH6ITDqcpU" target="_blank">
           clicando aqui neste link do Nubank
-          <img src="img/nubank-logo.svg" class="nubank" />
+          <img src="../img/nubank-logo.svg" class="nubank" />
         </a>
       </smartphone>
 
@@ -279,18 +273,18 @@
         Desenvolvido por:
 
         <a href="https://www.instagram.com/cristianfrontend/" target="_blank">
-          <img src="img/cristiantela-profile.png" class="profile" />
-          <img src="img/instagram-logo.svg" />
+          <img src="../img/cristiantela-profile.png" class="profile" />
+          <img src="../img/instagram-logo.svg" />
           <span><b>cristian</b>frontend</span>
         </a>
 
         <a href="https://www.linkedin.com/in/cristiantela/" target="_blank">
-          <img src="img/linkedin-logo.svg" />
+          <img src="../img/linkedin-logo.svg" />
           <span>cristiantela</span>
         </a>
 
         <a href="https://github.com/cristiantela/lula2turno" target="_blank">
-          <img src="img/github-logo.svg" />
+          <img src="../img/github-logo.svg" />
           <span>cristiantela/lula2turno</span>
         </a>
       </footer>
@@ -467,38 +461,15 @@
       document.querySelector("input").value =
         names[Math.floor(Math.random() * names.length)];
 
-      document.querySelector("button.save").addEventListener("click", () => {
+      document.querySelector("button").addEventListener("click", () => {
         gtag("event", "download");
         const a = document.createElement("a");
         a.setAttribute("href", canvas.toDataURL("image/png"));
         a.setAttribute(
           "download",
-          document.querySelector("input").value.trim()
+          document.querySelector("input").value.trim().toUpperCase()
         );
         a.click();
-      });
-
-      document.querySelector("button.share").addEventListener("click", () => {
-        gtag("event", "share");
-
-        canvas.toBlob((blob) => {
-          const filesArray = [
-            new File(
-              [blob],
-              document.querySelector("input").value.trim() + ".jpg",
-              {
-                type: "image/jpeg",
-                lastModified: new Date().getTime(),
-              }
-            ),
-          ];
-
-          const shareData = {
-            files: filesArray,
-          };
-
-          navigator.share(shareData);
-        });
       });
 
       function roundRect(
@@ -542,31 +513,21 @@
 
           context.save();
 
-          context.translate(540, 348);
-          context.rotate((-2 * Math.PI) / 180);
+          context.translate(100, 255);
+
+          const name = document
+            .querySelector("input")
+            .value.trim()
+            .toUpperCase();
 
           context.textBaseline = "middle";
-          context.font = "196.13px Bebas Neue";
-          const width = context.measureText(
-            document.querySelector("input").value.trim()
-          ).width;
+          context.font = "116px integral-cf-bold";
+          const width = context.measureText(name).width;
 
-          context.fillStyle = "#1ABC4C";
-          roundRect(
-            context,
-            -width / 2 - 25,
-            -184 / 2,
-            width + 25 * 2,
-            184,
-            21.66
-          );
+          const paddingWidth = 15;
 
-          context.fillStyle = "white";
-          context.fillText(
-            document.querySelector("input").value.trim(),
-            -width / 2,
-            20
-          );
+          context.fillStyle = "#ffffff";
+          context.fillText(name, 0, -5);
 
           context.restore();
 
