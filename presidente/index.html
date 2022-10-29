@@ -2,55 +2,53 @@
 <html lang="en">
   <head>
     <!-- Primary Meta Tags -->
-    <title>
-      Haddad 2º Turno — Gerar flyer de apoio ao Haddad com seu nome
-    </title>
+    <title>Lula Presidente — Gerar flyer de apoio ao Lula com seu nome</title>
     <meta
       name="title"
-      content="Haddad 2º Turno — Gerar flyer de apoio ao Haddad com seu nome"
+      content="Lula Presidente — Gerar flyer de apoio ao Lula com seu nome"
     />
     <meta
       name="description"
-      content="Gere seu flyer personalizado com seu nome de apoio ao Haddad para o segundo turno das eleições brasileira"
+      content="Gere seu flyer personalizado com seu nome de apoio ao Lula"
     />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta
       property="og:url"
-      content="https://cristiantela.github.io/lula2turno/haddad/"
+      content="https://cristiantela.github.io/lula2turno/presidente/"
     />
     <meta
       property="og:title"
-      content="Haddad 2º Turno — Gerar flyer de apoio ao Haddad com seu nome"
+      content="Lula Presidente — Gerar flyer de apoio ao Lula com seu nome"
     />
     <meta
       property="og:description"
-      content="Gere seu flyer personalizado com seu nome de apoio ao Haddad para o segundo turno das eleições brasileira"
+      content="Gere seu flyer personalizado com seu nome de apoio ao Lula"
     />
     <meta
       property="og:image"
       itemprop="image"
-      content="https://cristiantela.github.io/lula2turno/haddad/metadata.png"
+      content="https://cristiantela.github.io/lula2turno/presidente/metadata.png"
     />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta
       property="twitter:url"
-      content="https://cristiantela.github.io/lula2turno/haddad/"
+      content="https://cristiantela.github.io/lula2turno/presidente/"
     />
     <meta
       property="twitter:title"
-      content="Haddad 2º Turno — Gerar flyer de apoio ao Haddad com seu nome"
+      content="Lula Presidente — Gerar flyer de apoio ao Lula com seu nome"
     />
     <meta
       property="twitter:description"
-      content="Gere seu flyer personalizado com seu nome de apoio ao Haddad para o segundo turno das eleições brasileira"
+      content="Gere seu flyer personalizado com seu nome de apoio ao Lula"
     />
     <meta
       property="twitter:image"
-      content="https://cristiantela.github.io/lula2turno/haddad/metadata.png"
+      content="https://cristiantela.github.io/lula2turno/presidente/metadata.png"
     />
 
     <meta charset="UTF-8" />
@@ -255,7 +253,6 @@
 
       <canvas width="1080" height="1080"></canvas>
 
-      
       <smartphone>
         Olá, me chamo Matheus Cristian, estou em período de mudança para uma
         casa nova, colabore com meu chá de casa nova com qualquer valor através
@@ -483,20 +480,20 @@
           radius = { ...{ tl: 0, tr: 0, br: 0, bl: 0 }, ...radius };
         }
         ctx.beginPath();
-        ctx.moveTo(x, y);
-        ctx.lineTo(x + width, y);
-        // ctx.quadraticCurveTo(x + width, y, x + width, y + radius.tr);
-        ctx.lineTo(x + width, y + height);
-        // ctx.quadraticCurveTo(
-        //   x + width,
-        //   y + height,
-        //   x + width - radius.br,
-        //   y + height
-        // );
-        ctx.lineTo(x, y + height);
-        // ctx.quadraticCurveTo(x, y + height, x, y + height - radius.bl);
-        // ctx.lineTo(x, y + radius.tl);
-        // ctx.quadraticCurveTo(x, y, x + radius.tl, y);
+        ctx.moveTo(x + radius.tl, y);
+        ctx.lineTo(x + width - radius.tr, y);
+        ctx.quadraticCurveTo(x + width, y, x + width, y + radius.tr);
+        ctx.lineTo(x + width, y + height - radius.br);
+        ctx.quadraticCurveTo(
+          x + width,
+          y + height,
+          x + width - radius.br,
+          y + height
+        );
+        ctx.lineTo(x + radius.bl, y + height);
+        ctx.quadraticCurveTo(x, y + height, x, y + height - radius.bl);
+        ctx.lineTo(x, y + radius.tl);
+        ctx.quadraticCurveTo(x, y, x + radius.tl, y);
         ctx.closePath();
         ctx.fill();
       }
@@ -508,7 +505,7 @@
 
           context.save();
 
-          context.translate(540, 348);
+          context.translate(250, 352);
 
           const name = document
             .querySelector("input")
@@ -516,27 +513,16 @@
             .toUpperCase();
 
           context.textBaseline = "middle";
-          context.font = "bold 135.13px Signika";
+          context.font = "bold 106.98px Signika";
           const width = context.measureText(name).width;
 
-          const paddingWidth = 30;
+          const paddingWidth = 15;
 
-          const grad = context.createLinearGradient(-width / 2 - paddingWidth, -184 / 2, width + paddingWidth * 2, 184);
-          grad.addColorStop(0, "#EF813B");
-          grad.addColorStop(1, "#F6BF59");
-
-          context.fillStyle = grad;
-          roundRect(
-            context,
-            -width / 2 - paddingWidth,
-            -184 / 2,
-            width + paddingWidth * 2,
-            184,
-            60
-          );
+          context.fillStyle = "#1ABC4C";
+          roundRect(context, 0, -100 / 2, width + paddingWidth * 2, 100, 13);
 
           context.fillStyle = "#ffffff";
-          context.fillText(name, -width / 2, 15);
+          context.fillText(name, 13, 10);
 
           context.restore();
 
