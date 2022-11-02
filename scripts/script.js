@@ -94,7 +94,7 @@ function saveImage() {
     if (optionMenu() === "figura") {
       arquivoName = document.querySelector("input[name=yourname]").value.trim();
     } else if (optionMenu() === "filtro") {
-      arquivoName = "apoiobolsonaro";
+      arquivoName = "apoio";
     }
 
     const a = document.createElement("a");
