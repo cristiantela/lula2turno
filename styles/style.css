@@ -16,6 +16,9 @@ noscript > div {
   text-align: center;
 }
 
+.hidden {
+  display: none !important;
+}
 .btn {
   border: 0;
   border-radius: 0;
@@ -27,6 +30,48 @@ noscript > div {
 }
 .btn:hover {
   opacity: 0.7;
+}
+
+.menu-principal {
+  display: flex;
+  flex-direction: column;
+}
+.menu-principal .label {
+  color: #fff
+}
+.menu-principal .btnFull {
+  background-color: #333333;
+  border: 0;
+  color: #fff;
+  padding: 50px;
+  margin-bottom: 15px;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.menu-principal .btnFull img {
+  width: 86px;
+  margin-right: 1.5rem;
+}
+.menu-principal .btnFull > div {
+  text-align: left;
+}
+.menu-principal .btnFull p {
+  margin: 0;
+}
+.menu-principal .btnFull .menuBtnDestaque {
+  font-size: 2rem;
+}
+.menu-principal .btnCredito {
+  padding: 16px;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 20px;
+}
+.menu-principal .btnCredito .menuBtnDestaque {
+  font-size: 1.5rem;
 }
 
 .navbar {
@@ -53,12 +98,10 @@ noscript > div {
   background-color: #ffc530;
   color: #000;
 }
-.navbar .btnMenu {
-  padding: 6px 20px !important;
+.navbar .btnVoltar {
+  background-color: #353535;
   font-size: 16px;
   color: #fff;
-  width: 50%;
-  border-bottom: 0.5px solid #2c2c2c;
 }
 .navbar .btnMenu:hover {
   border-bottom: 0.5px solid #ffc530;
@@ -70,7 +113,7 @@ noscript > div {
 }
 
 .container {
-  width: 90%;
+  width: 95%;
   max-width: 700px;
   margin: 0 auto;
   margin-bottom: 80px;
@@ -106,7 +149,7 @@ noscript > div {
 
 .container canvas {
   display: block;
-  width: 80%;
+  width: 100%;
   margin: 0 auto 1rem;
 }
 

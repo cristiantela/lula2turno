@@ -10,15 +10,12 @@ pantonFont.load().then(function (font) {
   document.fonts.add(font);
 });
 
-const btnMenuFigura = document.querySelector(".btnMenuFigura");
-const btnMenuFiltro = document.querySelector(".btnMenuFiltro");
+const $main = document.querySelector("#main");
+const $menu = document.querySelector("#menu");
 
+let menuSelecionado = "";
 function optionMenu() {
-  return [...document.querySelectorAll("input[name=chkMenu]")][0].checked
-    ? "figura"
-    : [...document.querySelectorAll("input[name=chkMenu]")][1].checked
-    ? "filtro"
-    : false;
+  return menuSelecionado;
 }
 
 const baseImageFigure = new Image();
@@ -113,22 +110,34 @@ function saveImage() {
   }
 }
 
+function clickNome() {
+  menuSelecionado = "figura";
+  changeMenu();
+}
+
+function clickFoto() {
+  menuSelecionado = "filtro";
+  changeMenu();
+}
+function clickVoltar() {
+  menuSelecionado = "";
+
+  $menu.classList.remove("hidden");
+  $main.classList.add("hidden");
+}
+
 function changeMenu() {
   baseImageUsuario = new Image();
   context.clearRect(0, 0, canvas.width, canvas.height);
+  $menu.classList.add("hidden");
+  $main.classList.remove("hidden");
 
   switch (optionMenu()) {
     case "figura":
-      btnMenuFigura.classList.add("active");
-      btnMenuFiltro.classList.remove("active");
-
       document.querySelector("input[name=yourname]").type = "text";
       drawArte();
       break;
     case "filtro":
-      btnMenuFigura.classList.remove("active");
-      btnMenuFiltro.classList.add("active");
-
       document.querySelector("input[name=yourname]").type = "file";
       drawArte();
       break;
@@ -214,10 +223,6 @@ document
       reader.readAsDataURL(ev.target.files[0]);
     }
   });
-
-[...document.querySelectorAll("input[name=chkMenu]")].map((label) => {
-  label.addEventListener("change", changeMenu);
-});
 
 window.onload = () => {
   drawArte();

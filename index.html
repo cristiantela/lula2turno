@@ -51,43 +51,61 @@
   </noscript>
 
   <div class="container">
-    <div class="navbar">
-      <a class="btn btnDoe" href="https://nubank.com.br/pagar/34k5f/YBpybYS3Ej" target="_blank">Doe</a>
-      <a class="btn btnAjuda" href="https://www.instagram.com/reel/CkQ2_IaJGgr/?igshid=YmMyMTA2M2Y="
-        target="_blank">Como compartilhar</a>
-    </div>
-    <div class="navbar navbar-menu">
-      <label class="btn btnMenu btnMenuFigura active" for="chkFigura">Figura</label>
-      <input id="chkFigura" name="chkMenu" type="radio" target="_blank" checked hidden></input>
-      <label class="btn btnMenu btnMenuFiltro" for="chkFiltro">Filtro</label>
-      <input id="chkFiltro" name="chkMenu" type="radio" target="_blank" hidden></input>
-    </div>
 
-    <canvas width="1080" height="1080"></canvas>
+    <section id="menu" class="menu-principal">
+      <p class="label">Escolha uma opção:</p>
+      <button onclick="clickNome()" class="btn btnFull">
+        <img src="./apoioBolsonaro22.png" alt="Menu" />
+        <div>
+          <p>Coloque seu</p>
+          <span class="menuBtnDestaque">Nome</span>
+        </div>
+      </button>
+      <button onclick="clickFoto()" class="btn btnFull" style="margin-bottom: 25px;">
+        <img src="./bannerInicial.png" alt="Menu" />
+        <div>
+          <p>Coloque sua</p>
+          <span class="menuBtnDestaque">Foto</span>
+        </div>
+      </button>
 
-    <div class="form-input">
-      <input name="yourname" type="text" placeholder="Coloque seu nome aqui" accept="image/*" />
-      <div>
-        <button id="btnSave" class="btn btnSave" href="javascript:saveImage()">Salvar</button>
-        <button id="btnShare" class="btn btnShare" href="javascript:shareImage()">Compartilhar</button>
+      <a class="btn btnFull btnCredito" href="https://www.instagram.com/joaoeymard/">
+        <small>Feito por:</small>
+        <span class="menuBtnDestaque">@joaoeymard</span>
+      </a>
+      <a class="btn btnFull btnCredito" href="https://www.instagram.com/souocleison/">
+        <small>Desenhado por:</small>
+        <span class="menuBtnDestaque">@souocleison</span>
+      </a>
+    </section>
+
+    <main id="main" class="hidden">
+      <div class="navbar">
+        <button onclick="clickVoltar()" class="btn btnVoltar">← Menu </button>
+        <a class="btn btnDoe" href="https://nubank.com.br/pagar/34k5f/YBpybYS3Ej" target="_blank">Faça sua doação</a>
       </div>
-    </div>
 
-    <footer>
-      <a href="https://www.instagram.com/joaoeymard/" target="_blank">
-        <img src="img/instagram-logo.svg" />
-        <span>Feito por: @joaoeymard</span>
-      </a>
-      <a href="https://www.instagram.com/souocleison/" target="_blank">
-        <img src="img/instagram-logo.svg" />
-        <span>Desenhado por: @souocleison</span>
-      </a>
+      <canvas width="1080" height="1080"></canvas>
 
-      <a href="https://github.com/joaoeymard/bolsonaro2turno" target="_blank">
-        <img src="img/github-logo.svg" />
-        <span>joaoeymard/bolsonaro2turno</span>
-      </a>
-    </footer>
+      <div class="form-input">
+        <input name="yourname" type="text" placeholder="Coloque seu nome aqui" accept="image/*" />
+        <div>
+          <button id="btnSave" class="btn btnSave" href="javascript:saveImage()">Salvar</button>
+          <button id="btnShare" class="btn btnShare" href="javascript:shareImage()">Compartilhar</button>
+        </div>
+      </div>
+
+      <footer>
+        <a href="https://www.instagram.com/joaoeymard/" target="_blank">
+          <img src="img/instagram-logo.svg" />
+          <span>Feito por: @joaoeymard</span>
+        </a>
+        <a href="https://www.instagram.com/souocleison/" target="_blank">
+          <img src="img/instagram-logo.svg" />
+          <span>Desenhado por: @souocleison</span>
+        </a>
+      </footer>
+    </main>
   </div>
 
   <script src="./scripts/script.js?v=3"></script>
