@@ -19,13 +19,13 @@ function optionMenu() {
 }
 
 const baseImageFigure = new Image();
-baseImageFigure.src = "./apoioBolsonaro22.png";
+baseImageFigure.src = "./apoioBolsonaro22.png?v=2";
 
 const baseImageFiltro = new Image();
-baseImageFiltro.src = "./bannerInicial.png";
+baseImageFiltro.src = "./bannerInicial.png?v=2";
 
 const baseImageMascara = new Image();
-baseImageMascara.src = "./mascara.png";
+baseImageMascara.src = "./mascara.png?v=2";
 
 let baseImageUsuario = new Image();
 
