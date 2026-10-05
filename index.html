@@ -244,12 +244,6 @@
           <img src="photo/metadata.png" class="preview" />
           Acessar o gerador de filtro com sua foto
         </a>
-
-        <a href="liberdade/">
-          <img src="img/right-arrow-svgrepo.svg" />
-          <img src="liberdade/metadata.png" class="preview" />
-          Acessar o gerador com a palavra Liberdade
-        </a>
       </div>
     </div>
 
@@ -263,17 +257,6 @@
       </button>
 
       <canvas width="1080" height="1080"></canvas>
-
-      <!-- <smartphone>
-        Olá, me chamo Matheus Cristian, estou em período de mudança para uma
-        casa nova, colabore com meu chá de casa nova com qualquer valor através
-        do pix, segue minha chave pix:
-        <b>mathues@email.com</b> ou
-        <a href="https://nubank.com.br/pagar/199pu6/OH6ITDqcpU" target="_blank">
-          clicando aqui neste link do Nubank
-          <img src="img/nubank-logo.svg" class="nubank" />
-        </a>
-      </smartphone> -->
 
       <footer>
         Desenvolvido por:
@@ -542,11 +525,15 @@
 
           context.save();
 
-          context.translate(540, 348);
-          context.rotate((-2 * Math.PI) / 180);
+          context.translate(540, 265);
+
+          const skewXGraus = -11.25;
+          const skewXRadians = skewXGraus * (Math.PI / 180);
+
+          context.transform(1, Math.tan(skewXRadians), 0, 1, 0, 0);
 
           context.textBaseline = "middle";
-          context.font = "196.13px Bebas Neue";
+          context.font = "120px Bebas Neue";
           const width = context.measureText(
             document.querySelector("input").value.trim()
           ).width;
@@ -554,11 +541,11 @@
           context.fillStyle = "#1ABC4C";
           roundRect(
             context,
-            -width / 2 - 25,
-            -184 / 2,
-            width + 25 * 2,
-            184,
-            21.66
+            -width / 2 - 10,
+            -120 / 2,
+            width + 10 * 2,
+            120,
+            0
           );
 
           context.fillStyle = "white";
@@ -570,11 +557,46 @@
 
           context.restore();
 
+          const offsetX = - width / 2 - 10;
+
+          console.log(offsetX);
+
+          drawShadowBox(540 + offsetX, 265 + (120) / 2 + (offsetX * skewXRadians), width + 20, 120);
+
           setTimeout(draw, 100);
         }
 
         draw();
       });
+
+      function drawShadowBox(x0 = 540, y0 = 790, w = 500, hText = 120) {
+          const h = 50;
+
+          const anguloGraus = -11.25;
+          const rad = anguloGraus * (Math.PI / 180);
+          const cos = Math.cos(rad);
+          const sin = Math.sin(rad);
+          const offset = h * 1;
+
+          context.beginPath();
+
+          context.moveTo(x0, y0);
+
+          context.lineTo(x0 + w, y0 + (w * sin));
+
+          context.lineTo(x0 + w, y0 + (w * sin) - hText);
+
+          context.lineTo(x0 + w + offset, y0 + (w * sin) - hText + offset);
+
+          context.lineTo(x0 + w + offset, y0 + (w * sin) + (h * cos));
+
+          context.lineTo(x0 + offset, y0 + (h * cos));
+
+          context.closePath();
+
+          context.fillStyle = "#1ABC4C";
+          context.fill();
+        }
     </script>
   </body>
 </html>
